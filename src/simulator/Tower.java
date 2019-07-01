@@ -17,7 +17,9 @@ public class Tower {
 	}
 	protected void conditionsChanged() {
 		for (Flyable flyable : observers){
-			flyable.updateConditions();
+			if (flyable.isGrounded() == false){
+				flyable.updateConditions();
+			}
 		}
 	}
 }

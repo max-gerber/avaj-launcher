@@ -5,9 +5,11 @@ import src.simulator.WeatherTower;
 import src.vehicles.*;
 import src.weather.*;
 
+import java.util.Random;
+
 public class WeatherProvider {
 	private WeatherProvider weatherProvider;
-	private static String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};
+	private static String[] weather = {"SNOW", "RAIN", "FOG", "SUN"};
 	private WeatherProvider() {
 		this.weatherProvider = this;
 	}
@@ -18,6 +20,10 @@ public class WeatherProvider {
 		int longitude = coordinates.getLongitude();
 		int latitude = coordinates.getLatitude();
 		int height = coordinates.getHeight();
-		return weather[(longitude * latitude * height) % 4];
+		Random rand = new Random();
+		if (((longitude + latitude + height + rand.nextInt(4)) % 4) != 0){
+			return weather[0];
+		}
+		return weather[((longitude + latitude + height + rand.nextInt(4)) % 3) + 1];
 	}
 }

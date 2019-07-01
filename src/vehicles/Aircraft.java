@@ -6,6 +6,7 @@ import src.vehicles.*;
 import src.weather.*;
 
 public class Aircraft {
+	public Boolean grounded = false;
 	protected long id;
 	protected String name;
 	protected Coordinates coordinates;
@@ -20,5 +21,11 @@ public class Aircraft {
 	}
 	private static long nextId() {
 		return idCounter++;
+	}
+	public String getName() {
+		return this.name;
+	}
+	public Boolean isGrounded() {
+		return this.grounded;
 	}
 }

@@ -4,18 +4,19 @@ import src.simulator.Tower;
 import src.simulator.WeatherTower;
 import src.vehicles.*;
 import src.weather.*;
+import src.exception.*;
 
 public class AircraftFactory {
-	public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) /*throws InputException */{
+	public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) throws AircraftException {
 		Coordinates coordinates = new Coordinates(longitude, latitude, height);
 		switch(type){
 			case "Baloon":
-				return Baloon(name, coordinates);
+				return new Baloon(name, coordinates);
 			case "Helicopter":
-				return Helicopter(name, coordinates);
+				return new Helicopter(name, coordinates);
 			case "JetPlane":
-				return JetPlane(name, coordinates);
+				return new JetPlane(name, coordinates);
 		}
-		/*throw new InputException("Aircrafts of type " + type + " are forbidden in these parts");*/
+		throw new AircraftException("Aircrafts of type " + type + " are forbidden in these parts");
 	}
 }
