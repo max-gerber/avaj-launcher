@@ -1,3 +1,10 @@
+package src.vehicles;
+
+import src.simulator.Tower;
+import src.simulator.WeatherTower;
+import src.vehicles.*;
+import src.weather.*;
+
 public class Helicopter extends Aircraft{
 	private WeatherTower weatherTower;
 	Helicopter(String name, Coordinates coordinates){

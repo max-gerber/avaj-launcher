@@ -1,6 +1,13 @@
+package src.vehicles;
+
+import src.simulator.Tower;
+import src.simulator.WeatherTower;
+import src.vehicles.*;
+import src.weather.Coordinates;
+
 public class JetPlane extends Aircraft{
 	private WeatherTower weatherTower;
-	JetPlane(String name, Coordinates coordinates){
+	public	JetPlane(String name, Coordinates coordinates){
 		super(name, coordinates);
 	}
 	public void updateConditions() {

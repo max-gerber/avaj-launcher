@@ -1,3 +1,10 @@
+package src.vehicles;
+
+import src.simulator.Tower;
+import src.simulator.WeatherTower;
+import src.vehicles.*;
+import src.weather.*;
+
 public class Baloon extends Aircraft{
 	private WeatherTower weatherTower;
 	Baloon(String name, Coordinates coordinates){

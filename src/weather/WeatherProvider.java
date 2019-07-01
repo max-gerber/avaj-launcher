@@ -1,3 +1,10 @@
+package src.weather;
+
+import src.simulator.Tower;
+import src.simulator.WeatherTower;
+import src.vehicles.*;
+import src.weather.*;
+
 public class WeatherProvider {
 	private WeatherProvider weatherProvider;
 	private static String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};

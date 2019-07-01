@@ -1,3 +1,10 @@
+package src.vehicles;
+
+import src.simulator.Tower;
+import src.simulator.WeatherTower;
+import src.vehicles.*;
+import src.weather.*;
+
 public class AircraftFactory {
 	public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) /*throws InputException */{
 		Coordinates coordinates = new Coordinates(longitude, latitude, height);

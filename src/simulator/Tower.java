@@ -1,4 +1,11 @@
-import java.util.ArrayList;
+package src.simulator;
+
+import src.simulator.Tower;
+import src.simulator.WeatherTower;
+import src.vehicles.*;
+import src.weather.*;
+
+import java.util.*;
 
 public class Tower {
 	private List<Flyable> observers = new ArrayList<Flyable>();
