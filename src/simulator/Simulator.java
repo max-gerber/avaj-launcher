@@ -6,10 +6,12 @@ import src.vehicles.*;
 import src.weather.*;
 import src.exception.*;
 
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
+// import java.io.IOException;
+// import java.io.BufferedReader;
+// import java.io.FileReader;
+// import java.io.FileWriter;
+// import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 public class Simulator {
@@ -17,6 +19,8 @@ public class Simulator {
 	private static List<Flyable> flyables = new ArrayList<Flyable>();
 	public static void main(String[] args) throws InterruptedException {
 		try {
+			File file = new File("simulation.txt");
+			file.delete();
 			BufferedReader reader = new BufferedReader(new FileReader(args[0]));
 			String line = reader.readLine();
 			if (line != null){

@@ -5,6 +5,8 @@ import src.simulator.WeatherTower;
 import src.vehicles.*;
 import src.weather.*;
 
+import java.io.*;
+
 public class Aircraft {
 	public Boolean grounded = false;
 	protected long id;
@@ -27,5 +29,15 @@ public class Aircraft {
 	}
 	public Boolean isGrounded() {
 		return this.grounded;
+	}
+	public void announce(String message) {
+		try{
+			File file = new File("simulation.txt");
+			FileWriter fr = new FileWriter(file, true);
+			fr.write(message + "\n");
+			fr.close();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

@@ -15,29 +15,29 @@ public class Helicopter extends Aircraft implements Flyable{
 		switch (weather) {
 			case "SUN":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude() + 10, this.coordinates.getLatitude(), this.coordinates.getHeight() + 2);
-				System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + "Perfect weather for trip");
+				this.announce("Helicopter#" + this.name + "(" + this.id + "): " + "Perfect weather for trip");
 				break;
 			case "RAIN":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude() + 5, this.coordinates.getLatitude(), this.coordinates.getHeight());
-				System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + "Oooh, romantic!");
+				this.announce("Helicopter#" + this.name + "(" + this.id + "): " + "Oooh, romantic!");
 				break;
 			case "FOG":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude() + 1, this.coordinates.getLatitude(), this.coordinates.getHeight());
-				System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + "I'm pretty sure the cliff face is still far away...");
+				this.announce("Helicopter#" + this.name + "(" + this.id + "): " + "I'm pretty sure the cliff face is still far away...");
 				break;
 			case "SNOW":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLatitude(), this.coordinates.getHeight() - 12);
-				System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + "I'm getting too cold for this shit");
+				this.announce("Helicopter#" + this.name + "(" + this.id + "): " + "I'm getting too cold for this shit");
 				break;
 		}
 		if (this.coordinates.getHeight() < 0){
 			this.grounded = true;
-			System.out.println("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " unregistered from the weather tower at (0, " + this.coordinates.getLatitude() + ", " + this.coordinates.getLongitude() + ")");
+			this.announce("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " unregistered from the weather tower at (0, " + this.coordinates.getLatitude() + ", " + this.coordinates.getLongitude() + ")");
 		}
 	}
 	public void registerTower(WeatherTower weatherTower) {
 		this.weatherTower = weatherTower;
 		this.weatherTower.register(this);
-		System.out.println("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to the weather tower");
+		this.announce("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to the weather tower");
 	}
 }
